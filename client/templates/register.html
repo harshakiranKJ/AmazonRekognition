@@ -4,9 +4,8 @@
 	    <a href="/dashboard/overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a> 
 	    <h2>Register <small>new users</small></h2> 
 
-	    <i class="fa fa-dashboard bg-fade"></i>
 	    <div class="jumbotron"> 
-            <div class="container">
+            <div class="div">
                 {{> camera}}
             </div>
 	    </div> 
@@ -17,14 +16,14 @@
 <template name="camera">
     
         <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div id="webcam"></div>
                 <div align="center">
                     <button class="btn btn-info btn-lg snap">Take photo!</button>
                 </div>
             </div>
     
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 {{#if image}}
                     <img src="{{image}}">
     
