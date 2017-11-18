@@ -1,0 +1,52 @@
+<template name="register">
+	<div key="reports" class="reports-page ui-view main">
+	  <div class="ng-scope"> 
+	    <a href="/dashboard/overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a> 
+	    <h2>Register <small>new users</small></h2> 
+
+	    <i class="fa fa-dashboard bg-fade"></i>
+	    <div class="jumbotron"> 
+            <div class="container">
+                {{> camera}}
+            </div>
+	    </div> 
+	  </div>
+	</div>
+</template>
+
+<template name="camera">
+    
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <div id="webcam"></div>
+                <div align="center">
+                    <button class="btn btn-info btn-lg snap">Take photo!</button>
+                </div>
+            </div>
+    
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                {{#if image}}
+                    <img src="{{image}}">
+    
+                    <hr/>
+                    <form class="form-horizontal" action="/action_page.php">
+                      <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <div class="col-sm-10">
+                          <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                        </div>
+                      </div>
+                    </form>
+                    {{> s3_tester}}
+                {{/if}}
+    
+            </div>
+        </div>
+</template>
+    
+    
+<template name="s3_tester">
+
+    <button class="btn-info btn-lg upload">Upload</button>
+    {{> sAlert}}
+</template>
