@@ -50,13 +50,21 @@ Template.camera.onRendered(function() {
 
         // Get the Name
         var nData = $("#name").val();
+        var lData = $("#license").val();
 
         //Upload
 		S3.upload({
 				files:filess,
-				path:nData
+				path:"index"
 			},function(e,r){
                 sAlert.success('Image Uploaded succesfully!', {timeout: 1000, onClose: function() {console.log('closing alert in 1000ms...');}});
+                
+                // Push it to the database
+                ImageDb.insert({name: nData, date: new Date(), url: r.secure_url, license: lData}, function(error, result) {
+
+                  });
+
+                //cleanup
                 Session.set('webcamSnap', null);
 		});
 	}
